@@ -20,31 +20,158 @@ const ACAI_ID = 18;
 const ACAI_BASE_PRICE = 17.9;
 const ETA_TEXT = "20–35 min"; // tempo estimado fornecido
 
+// --- DADOS ADICIONAIS AÇAÍ ---
 const ACAI_TOPPINGS = [
-  { name: "Banana", price: 0.01 },
-  { name: "Morango", price: 2.0 },
-  { name: "Leite Ninho", price: 1.0 },
-  { name: "Leite Condensado", price: 0.01 },
-  { name: "Creme de Ninho", price: 1.0 },
-  { name: "Nutella", price: 3.0 },
-  { name: "Amendoim", price: 1.0 },
+    { name: "Banana", price: 0.01 },
+    { name: "Morango", price: 2.00 },
+    { name: "Leite Ninho", price: 1.00 },
+    { name: "Leite Condensado", price: 0.01 },
+    { name: "Creme de Ninho", price: 1.00 },
+    { name: "Nutella", price: 3.00 },
+    { name: "Amendoim", price: 1.00 },
 ];
+// Base price for 250ml Açaí (ID 18)
+const ACAI_ID = 18;
+const ACAI_BASE_PRICE = 17.90; 
 
+// --- DADOS MOCK (PRODUTOS ATUALIZADOS) ---
 const initialProducts = [
-  { id: 9, name: "Red velvet com Ninho e Morangos", price: 15.90, category: 'bolos', description: "Massa aveludada...", imageUrl: "https://i.imgur.com/3UDWhLR.png" },
-  { id: 2, name: "Bolo Cenoura com chocolate", price: 15.90, category: 'bolos', description: "Mini vulcão de cenoura...", imageUrl: "https://i.imgur.com/aaUdL2b.png" },
-  { id: ACAI_ID, name: "Copo de Açaí 250ml", price: ACAI_BASE_PRICE, category: 'acai', description: "Copo de Açaí cremoso...", imageUrl: "https://i.imgur.com/OrErP8N.png" },
-  { id: 20, name: "Brownie De Ninho e Nutella", price: 11.90, category: 'brownie', description: "Brownie gourmet...", imageUrl: "https://i.imgur.com/vWdYZ8K.png" },
-  { id: 6, name: "Empada de Camarão e Requeijão", price: 12.00, category: 'salgado', description: "Camarão Cremoso...", imageUrl: "https://i.imgur.com/rV18DkJ.png" },
-];
+  // Categoria BOLOS
+  { 
+    id: 9, 
+    name: "Red velvet com Ninho e Morangos", 
+    price: 15.90, 
+    category: 'bolos', 
+    description: "Massa aveludada e macia, coberta com creme de leite Ninho cremoso e morangos fresquinhos no topo. Uma combinação elegante.", 
+    imageUrl: "https://i.imgur.com/3UDWhLR.png" 
+  },
+  { 
+    id: 2, 
+    name: "Bolo Cenoura com chocolate", 
+    price: 15.90, 
+    category: 'bolos', 
+    description: "Mini vulcão de cenoura: uma massa fofinha e úmida de bolo de cenoura, recheada com explosão de calda cremosa de chocolate que transborda a cada mordida. Um clássico em versão irresistível e perfeita para se deliciar sem culpa!", 
+    imageUrl: "https://i.imgur.com/aaUdL2b.png" 
+  },
+  {
+    id: 10,
+    name: "Chocolate com Morangos",
+    price: 15.90,
+    category: 'bolos', 
+    description: "Mini vulcão de chocolate: bolo fofinho e úmido de massa de chocolate, coberto com calda cremosa de chocolate 50% recheado e finalizado com morangos fresquinhos que trazem o toque perfeito de frescor e sabor. Uma combinação clássica e irresistível!",
+    imageUrl: "https://i.imgur.com/MMbQohl.png"
+  },
+  {
+    id: 13,
+    name: "Chocolatudo!!!",
+    price: 15.90, 
+    category: 'bolos', 
+    description: "Delicioso bolo de chocolate fofinho, coberto com uma cremosa calda de chocolate 50% cacau e finalizado com generosos granulados. Uma explosão de sabor intenso e equilibrado para os verdadeiros amantes de chocolate!",
+    imageUrl: "https://i.imgur.com/3Hva4Df.png"
+  },
+  {
+    id: 16,
+    name: "Bolo de Ferreiro com Nutella",
+    price: 16.90, 
+    category: 'bolos',
+    description: "Bolo Vulcão de Chocolate com Amendoim e Nutella. Massa macia e chocolatuda com pedacinhos crocantes de amendoim. Coberto com chocolate 50% intenso, finalizado com Nutella cremosa e amendoim torrado por cima.",
+    imageUrl: "https://i.imgur.com/OamNqov.png"
+  },
+  
+  // Categoria COPO DA FELICIDADE
+  {
+    id: 17, 
+    name: "Copo Oreo com Nutella",
+    price: 24.90, 
+    category: 'copo_felicidade',
+    description: "Primeira camada de creme de Ninho bem cremoso, seguida de biscoitos Oreo crocantes. Depois, uma camada generosa de chocolate 50%, finalizando com Nutella e mais Oreo por cima. Uma combinação que conquista no olhar... e vicia no sabor!",
+    imageUrl: "https://i.imgur.com/1EZRMVl.png"
+  },
+  {
+    id: 24, 
+    name: "Copo Maracujá com Brownie",
+    price: 24.90, 
+    category: 'copo_felicidade',
+    description: "Camadas de creme de maracujá bem cremoso, seguidas de chocolate 50% e pedaços de brownie macio. Depois, mais uma sequência irresistível de creme de maracujá e chocolate 50%, tudo finalizado com chantilly leve para completar essa explosão de sabor!",
+    imageUrl: "https://i.imgur.com/PypEwAz.png"
+  },
+  {
+    id: 25, 
+    name: "Copo Brawnie Dois Amores",
+    price: 22.90, 
+    category: 'copo_felicidade',
+    description: "Camadas de creme de Ninho (Leite) cremoso e Brigadeiro Clássico, intercaladas com pedaços macios e úmidos de brownie de chocolate. Uma combinação clássica dos dois amores do Brasil, perfeita para os chocólatras.",
+    imageUrl: "https://i.imgur.com/mMQtXDB.png"
+  },
+  {
+    id: 26, 
+    name: "Copo Encanto de Ninho e Morangos",
+    price: 22.90, 
+    category: 'copo_felicidade',
+    description: "Ninho com Morangos Camadas cremosas de creme de Ninho intercaladas com morangos frescos, criando um equilíbrio perfeito entre o doce e o azedinho da fruta. Finalizado com chantilly suave e um morango fresco por cima, trazendo aquele toque especial que conquista no primeiro olhar... e no primeiro sabor!",
+    imageUrl: "https://i.imgur.com/EgFhhwL.png"
+  },
+  {
+    id: 27, 
+    name: "Copo de Brownie com Ferreiro e Nutella",
+    price: 26.90, 
+    category: 'copo_felicidade',
+    description: "Brownie, Ferrero & Nutella Começa com uma camada de chocolate 50% com amendoim e Nutella, seguida de brownie macio no meio. Depois, mais chocolate 50% com amendoim e bastante Nutella, finalizando com Nutella cremosa por cima e um pedaço de brownie para completar essa explosão de sabor.",
+    imageUrl: "https://i.imgur.com/t6xeVDf.png"
+  },
 
-const categories = {
-  all: 'Todos os Produtos',
-  bolos: 'Bolos',
-  copo_felicidade: 'Copo da Felicidade',
-  brownie: 'Brownies',
-  acai: 'Açaí',
-  salgado: 'Salgados',
+  // Categoria BROWNIES
+  { 
+    id: 20,
+    name: "Brownie De Ninho e Nutella",
+    price: 11.90, 
+    category: 'brownie',
+    description: "Brownie gourmet coberto com creme de Ninho, finalizado com Nutella e morango fresco. Uma combinação irresistível para adoçar seu Dia! 8x8",
+    imageUrl: "https://i.imgur.com/vWdYZ8K.png"
+  },
+  {
+    id: 21,
+    name: "Brownie Recheado com Nutella e Morangos",
+    price: 22.90, 
+    category: 'brownie',
+    description: "Duas camadas de brownie super molhadinho, recheado e coberto com creme de leite Ninho, finalizado com Nutella e morango fresco para aquele toque especial. Simples, irresistível e feito para adoçar seu Dia!",
+    imageUrl: "https://i.imgur.com/P1pprjF.png"
+  },
+  {
+    id: 22, 
+    name: "Brownie Ferreiro com Nutella",
+    price: 11.90, 
+    category: 'brownie',
+    description: "Um brownie super cremoso e chocolatudo, coberto com Nutella na medida certa e finalizado com amendoim torrado crocante. A mistura perfeita entre o doce intenso do chocolate e o toque salgado do amendoim, simplesmente irresistível",
+    imageUrl: "https://i.imgur.com/rmp3LtH.png" 
+  },
+  {
+    id: 23, 
+    name: "Brownie Duo com Oreo",
+    price: 11.90, 
+    category: 'brownie',
+    description: "Brownie macio e úmido, coberto com creme de chocolate e finalizado com pedaços crocantes de Oreo. Uma explosão de sabor em cada mordida!",
+    imageUrl: "https://i.imgur.com/8IbcWWj.png"
+  },
+  
+  // Categoria AÇAÍ
+  {
+    id: ACAI_ID, // 18
+    name: "Copo de Açaí 250ml",
+    price: ACAI_BASE_PRICE, 
+    category: 'acai',
+    description: "Copo de Açai cremoso e saboroso. Escolha seus acompanhamentos e saboreie.",
+    imageUrl: "https://i.imgur.com/OrErP8N.png"
+  },
+  
+  // Categoria SALGADOS (APENAS Empada de Camarão e Requeijão)
+  { 
+    id: 6, 
+    name: "Empada de Camarão e Requeijão", 
+    price: 12.00, // Preço sugerido
+    category: 'salgado', 
+    description: "Camarão Cremoso com Requeijão: Camarões selecionados salteados e envoltos em um cremoso molho e Requeijão com tempero caseiro e sabor marcante. Servido na marmitinha, é a combinação perfeita de praticidade e sabor em cada garfada!", 
+    imageUrl: "https://i.imgur.com/rV18DkJ.png"
 };
 
 const PAYMENT_METHODS = [{ id: 'pix', name: 'Pix', details: 'Pagamento via QR Code ou chave Pix.' }];
